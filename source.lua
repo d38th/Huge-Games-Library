@@ -1292,8 +1292,4 @@ function Luxt1.CreateWindow(libName, logoId)
     return TabHandling
 end
 
-function HugeLib:Destroy()
-	Huge:Destroy()
-end
-
 return Luxt1
