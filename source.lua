@@ -1,9 +1,6 @@
 local Luxt1 = {}
 
-function Luxt1.CreateWindow(libName, logoId)
-
-
-    local HugeLib = Instance.new("ScreenGui")
+local HugeLib = Instance.new("ScreenGui")
     HugeLib.Name = "Huge"
     if syn then
         syn.protect_gui(Huge)
@@ -25,6 +22,11 @@ function Luxt1.CreateWindow(libName, logoId)
             end
         end
     end
+
+function Luxt1.CreateWindow(libName, logoId)
+
+
+    
 
     local shadow = Instance.new("ImageLabel")
     local MainFrame = Instance.new("Frame")
