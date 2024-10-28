@@ -1,7 +1,31 @@
 local Luxt1 = {}
 
 function Luxt1.CreateWindow(libName, logoId)
+
+
     local HugeLib = Instance.new("ScreenGui")
+    HugeLib.Name = "Huge"
+    if syn then
+        syn.protect_gui(Huge)
+        Huge.Parent = game.CoreGui
+    else
+        Huge.Parent = gethui() or game.CoreGui
+    end
+    
+    if gethui then
+        for _, Interface in ipairs(gethui():GetChildren()) do
+            if Interface.Name == Huge.Name and Interface ~= Huge then
+                Interface:Destroy()
+            end
+        end
+    else
+        for _, Interface in ipairs(game.CoreGui:GetChildren()) do
+            if Interface.Name == Huge.Name and Interface ~= Huge then
+                Interface:Destroy()
+            end
+        end
+    end
+
     local shadow = Instance.new("ImageLabel")
     local MainFrame = Instance.new("Frame")
     local sideHeading = Instance.new("Frame")
@@ -45,52 +69,6 @@ function Luxt1.CreateWindow(libName, logoId)
             oldKey = a.KeyCode.Name;
         end
     end)
-
-
-
-    if gethui then
-        for _, Interface in ipairs(gethui():GetChildren()) do
-            if Interface.Name == HugeLib.Name and Interface ~= HugeLib then
-                Interface:Destroy()
-            end
-        end
-    else
-        for _, Interface in ipairs(game.CoreGui:GetChildren()) do
-            if Interface.Name == HugeLib.Name and Interface ~= HugeLib then
-                Interface:Destroy()
-            end
-        end
-    end
-    
-    function HugeLib:IsRunning()
-        if gethui then
-            return HugeLib.Parent == gethui()
-        else
-            return HugeLib.Parent == game:GetService("CoreGui")
-        end
-    
-    end
-    
-    local function AddConnection(Signal, Function)
-        if (not HugeLib:IsRunning()) then
-            return
-        end
-        local SignalConnect = Signal:Connect(Function)
-        table.insert(HugeLib.Connections, SignalConnect)
-        return SignalConnect
-    end
-    
-    task.spawn(function()
-        while (HugeLib:IsRunning()) do
-            wait()
-        end
-    
-        for _, Connection in next, HugeLib.Connections do
-            Connection:Disconnect()
-        end
-    end)
-
-
 
     game:GetService("UserInputService").InputBegan:connect(function(current, ok) 
         if not ok then 
@@ -1313,7 +1291,7 @@ function Luxt1.CreateWindow(libName, logoId)
 end
 
 function HugeLib:Destroy()
-	HugeLib:Destroy()
+	Huge:Destroy()
 end
 
 return Luxt1
