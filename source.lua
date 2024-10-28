@@ -413,7 +413,7 @@ function Luxt1.CreateWindow(libName, logoId)
                     game.TweenService:Create(sectionExpannd, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{
                         Rotation = 0
                     }):Play()
-                    wait(0.10)
+                    wait()
                     UpdateSize()
                 else
                     isDropped = true
@@ -421,7 +421,7 @@ function Luxt1.CreateWindow(libName, logoId)
                     game.TweenService:Create(sectionExpannd, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{
                         Rotation = 180
                     }):Play()
-                    wait(0.10)
+                    wait()
                     UpdateSize()
                 end
             end)
@@ -461,7 +461,7 @@ function Luxt1.CreateWindow(libName, logoId)
                     if not debounce then
                         debounce = true
                         callback()
-                        wait(1)
+                        wait()
                         debounce = false
                     end
                 end)
@@ -490,7 +490,7 @@ function Luxt1.CreateWindow(libName, logoId)
                             BackgroundColor3 = Color3.fromRGB(101, 168, 157),
                             TextColor3 = Color3.fromRGB(0,0,0)
                         }):Play()
-                        wait(1)
+                        wait()
                         debounce1 = false
                     end
                 end)
@@ -597,7 +597,7 @@ function Luxt1.CreateWindow(libName, logoId)
                                     checkBtn.ImageRectOffset = Vector2.new(940, 784)
                                     checkBtn.ImageRectSize = Vector2.new(48,48)
                                 end
-                                wait(1)
+                                wait()
                                 togDe = false
                             end
                     end)
@@ -703,9 +703,9 @@ function Luxt1.CreateWindow(libName, logoId)
                                         keyDebounce = true
                                         callback()
                                         keybindFrame:TweenSize(UDim2.new(0, 359,0, 30), "InOut", "Quint", 0.18, true)
-                                        wait(0.18)
+                                        wait()
                                         keybindFrame:TweenSize(UDim2.new(0, 365,0, 36), "InOut", "Quint", 0.18, true)
-                                        wait(0.5)
+                                        wait()
                                         keyDebounce = false
                                     end
                                 end
@@ -793,7 +793,7 @@ function Luxt1.CreateWindow(libName, logoId)
                             function anim(property)
                                 if property == "Text" then
                                     textboxFrame:TweenSize(UDim2.new(0, 359,0, 30), "InOut", "Quint", 0.18, true)
-                                    wait(0.18)
+                                    wait()
                                     textboxFrame:TweenSize(UDim2.new(0, 365,0, 36), "InOut", "Quint", 0.18, true)
                                 end
                             end
@@ -803,7 +803,7 @@ function Luxt1.CreateWindow(libName, logoId)
                                 if not EnterPressed then return end
                                 callback(TextBox.Text)
                                 textboxFrame:TweenSize(UDim2.new(0, 359,0, 30), "InOut", "Quint", 0.18, true)
-                                wait(0.18)
+                                wait()
                                 textboxFrame:TweenSize(UDim2.new(0, 365,0, 36), "InOut", "Quint", 0.18, true)
                                 TextBox.Text = ""  
                             end)
@@ -989,7 +989,7 @@ function Luxt1.CreateWindow(libName, logoId)
                                 function anim(property)
                                     if property == "Size" then
                                         sliderFrame:TweenSize(UDim2.new(0, 359,0, 30), "InOut", "Quint", 0.18, true)
-                                        wait(0.18)
+                                        wait()
                                         sliderFrame:TweenSize(UDim2.new(0, 365,0, 36), "InOut", "Quint", 0.18, true)
                                     end
                                 end
@@ -1141,9 +1141,9 @@ function Luxt1.CreateWindow(libName, logoId)
                                             game.TweenService:Create(expand_more, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{
                                                 Rotation = 0
                                             }):Play()
-                                            wait(0.10)
+                                            wait()
                                             sectionFrame:TweenSize(UDim2.new(1,0, 0, sectionInnerList.AbsoluteContentSize.Y + 5), "In", "Quint", 0.10)
-                                            wait(0.10)
+                                            wait()
                                             UpdateSize()
                                         else
                                             isDropped1 = true
@@ -1151,9 +1151,9 @@ function Luxt1.CreateWindow(libName, logoId)
                                             game.TweenService:Create(expand_more, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{
                                                 Rotation = 180
                                             }):Play()
-                                            wait(0.10)
+                                            wait()
                                             sectionFrame:TweenSize(UDim2.new(1,0, 0, sectionInnerList.AbsoluteContentSize.Y + 5), "In", "Quint", 0.10)
-                                            wait(0.10)
+                                            wait()
                                             UpdateSize()
                                         end
                                     end)
@@ -1221,9 +1221,9 @@ function Luxt1.CreateWindow(libName, logoId)
                                             DropDownFrame:TweenSize(UDim2.new(0, 365, 0, 36), "In", "Quint", 0.10)
                                             wait()
                                             isDropped = false
-                                            wait(0.10)
+                                            wait()
                                             sectionFrame:TweenSize(UDim2.new(1,0, 0, sectionInnerList.AbsoluteContentSize.Y + 5), "In", "Quint", 0.10)
-                                            wait(0.10)
+                                            wait()
                                             UpdateSize()
                                             game.TweenService:Create(expand_more, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{
                                                 Rotation = 0
