@@ -12,6 +12,7 @@ function Luxt1.CreateWindow(libName, logoId)
     local hubName = Instance.new("TextLabel")
     local tabFrame = Instance.new("ScrollingFrame")
     local UIListLayout = Instance.new("UIListLayout")
+    local UsernameHolder = Instance.new("Frame")
     local usename = Instance.new("TextLabel")
     local MainCorner_3 = Instance.new("UICorner")
     local wave = Instance.new("ImageLabel")
@@ -44,6 +45,52 @@ function Luxt1.CreateWindow(libName, logoId)
             oldKey = a.KeyCode.Name;
         end
     end)
+
+
+
+    if gethui then
+        for _, Interface in ipairs(gethui():GetChildren()) do
+            if Interface.Name == HugeLib.Name and Interface ~= HugeLib then
+                Interface:Destroy()
+            end
+        end
+    else
+        for _, Interface in ipairs(game.CoreGui:GetChildren()) do
+            if Interface.Name == HugeLib.Name and Interface ~= HugeLib then
+                Interface:Destroy()
+            end
+        end
+    end
+    
+    function HugeLib:IsRunning()
+        if gethui then
+            return HugeLib.Parent == gethui()
+        else
+            return HugeLib.Parent == game:GetService("CoreGui")
+        end
+    
+    end
+    
+    local function AddConnection(Signal, Function)
+        if (not HugeLib:IsRunning()) then
+            return
+        end
+        local SignalConnect = Signal:Connect(Function)
+        table.insert(HugeLib.Connections, SignalConnect)
+        return SignalConnect
+    end
+    
+    task.spawn(function()
+        while (HugeLib:IsRunning()) do
+            wait()
+        end
+    
+        for _, Connection in next, HugeLib.Connections do
+            Connection:Disconnect()
+        end
+    end)
+
+
 
     game:GetService("UserInputService").InputBegan:connect(function(current, ok) 
         if not ok then 
@@ -177,6 +224,11 @@ function Luxt1.CreateWindow(libName, logoId)
     UIListLayout.Parent = tabFrame
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
     UIListLayout.Padding = UDim.new(0, 5)
+
+    UsernameHolder.Name = "UsernameHolder"
+    UsernameHolder.Parent = sideHeading
+    UsernameHolder.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+
 
     usename.Name = "usename"
     usename.Parent = sideHeading
@@ -1258,6 +1310,10 @@ function Luxt1.CreateWindow(libName, logoId)
         return sectionHandling
     end
     return TabHandling
+end
+
+function HugeLib:Destroy()
+	HugeLib:Destroy()
 end
 
 return Luxt1
