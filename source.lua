@@ -1,33 +1,9 @@
 local Luxt1 = {}
 
-local HugeLib = Instance.new("ScreenGui")
-    HugeLib.Name = "Huge"
-    if syn then
-        syn.protect_gui(Huge)
-        Huge.Parent = game.CoreGui
-    else
-        Huge.Parent = gethui() or game.CoreGui
-    end
-    
-    if gethui then
-        for _, Interface in ipairs(gethui():GetChildren()) do
-            if Interface.Name == Huge.Name and Interface ~= Huge then
-                Interface:Destroy()
-            end
-        end
-    else
-        for _, Interface in ipairs(game.CoreGui:GetChildren()) do
-            if Interface.Name == Huge.Name and Interface ~= Huge then
-                Interface:Destroy()
-            end
-        end
-    end
-
 function Luxt1.CreateWindow(libName, logoId)
 
 
-    
-
+    local HugeLib = Instance.new("ScreenGui")
     local shadow = Instance.new("ImageLabel")
     local MainFrame = Instance.new("Frame")
     local sideHeading = Instance.new("Frame")
