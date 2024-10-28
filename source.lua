@@ -26,6 +26,10 @@ function Luxt1.CreateWindow(libName, logoId)
     local UICorner = Instance.new("UICorner")
     local keybindInfo1 = Instance.new("TextLabel")
 
+    local function Kill()
+        HugeLib:Destroy()
+    end
+
     key1.Name = "key1"
     key1.Parent = sideHeading
     key1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
