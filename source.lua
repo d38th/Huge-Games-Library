@@ -29,7 +29,7 @@ function Luxt1.CreateWindow(libName, logoId)
     key1.Position = UDim2.new(0.0508064516, 0, 0.935261786, 0)
     key1.Size = UDim2.new(0, 76, 0, 22)
     key1.ZIndex = 2
-    key1.Font = Enum.Font.GothamSemibold
+    key1.Font = Enum.Font.GothamBold
     key1.Text = "LeftAlt"
     key1.TextColor3 = Color3.fromRGB(153, 255, 238)
     key1.TextSize = 14.000
